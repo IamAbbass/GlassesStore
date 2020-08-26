@@ -7,77 +7,44 @@ use Illuminate\Http\Request;
 
 class GlassesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        //
+        $glasses = Glasses::all();
+        return view('glasses.index',[
+            'glasses' => $glasses,
+        ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Glasses  $glasses
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Glasses $glasses)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Glasses  $glasses
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Glasses $glasses)
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Glasses  $glasses
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Glasses $glasses)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Glasses  $glasses
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Glasses $glasses)
     {
         //

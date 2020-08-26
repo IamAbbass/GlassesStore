@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(auth()->check()){
+        return redirect('/home');
+    }else{
+        return redirect('/login');
+    }
 });
+Auth::routes(['reset'=>false,'register'=>false]);
+Route::resource('/home', 'GlassesController');

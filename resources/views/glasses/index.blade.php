@@ -44,12 +44,26 @@
                                     <td>{{ $glass->name }}</td>
                                     <td>{{ $glass->brand }}</td>
                                     <td>{{ $glass->description }}</td>
-                                    <td>{{ $glass->image }}</td>
+                                <td><img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt=""></td>
                                     <td>{{ $glass->color }}</td>
                                     <td>{{ $glass->price }}</td>
-                                    <td>{{ $glass->is_available }}</td>
+
                                     <td>
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}">Edit</a>    
+                                        @if ($glass->is_available==0)
+                                        {{$a="true"}}
+                                            @else
+                                            {{$a="false"}}
+                                        @endif
+                                        {{-- {{ $glass->is_available }} --}}
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}/edit">Edit</a>
+                                        <br>
+                                    <form action="/home/{{$glass->id}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                        <button  type="submit" class="btn btn-warning">Delete</button>
+                                    </form>
                                     </td>
                                 </tr>
                             @endforeach

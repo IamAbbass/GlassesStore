@@ -8,7 +8,7 @@
                 <div class="card-header">
                     {{ __('List of all Items') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/glass/create">Create</a>    
+                    <a class="btn btn-primary text-white float-right" href="/customer/create">Create</a>    
                 </div>
 
                 <div class="card-body">
@@ -23,46 +23,55 @@
                         <thead>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Is_Delete</th>
+                            <th>phone</th>
+                            <th>Is_Varified</th>
+                            <th>Address</th>
+                            <th>location</th>
+                            <th>FCM_Token</th>
+                            <th>Notes</th>
+                            <th>gender</th>
+                            <th>Is_Blocked</th>
                             <th>Options</th>
                         </thead>
                         <tbody>
                             @php
                                 $sno = 0;
                             @endphp
-                            @foreach($glasses as $glass)
+                            @foreach($customer as $customers)
                                 @php
                                     $sno++;
                                 @endphp
                                 <tr>
                                     <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                <td><img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt=""></td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
-
+                                    <td>{{ $customers->name }}</td>
+                                    <td>{{ $customers->phone }}</td>
                                     <td>
-                                        @if ($glass->is_available==0)
+                                        @if ($customers->is_verified==0)
                                         {{$a="true"}}
                                             @else
                                             {{$a="false"}}
                                         @endif
-                                        {{-- {{ $glass->is_available }} --}}
+                                   
                                     </td>
-                                    <td>{{ $glass->deleted_at }}</td>
+                                    <td>{{ $customers->address }}</td>
+                                    <td>{{ $customers->location }}</td>
+                                    <td>{{ $customers->fcm_token }}</td>
+                                    <td>{{ $customers->notes }}</td>
+                                    <td>{{ $customers->gender }}</td>
+                                    <td>
+                                        @if ($customers->is_blocked==0)
+                                        {{$a="true"}}
+                                            @else
+                                            {{$a="false"}}
+                                        @endif
+                                   
+                                    </td>
+                             
 
                                     <td align="center">
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}/edit">Edit</a>
+                                    <a class="btn btn-primary text-white" href="/customer/{{$customers->id}}/edit">Edit</a>
                                         <br>
-                                    <form action="/home/{{$glass->id}}" method="post">
+                                    <form action="/customer/{{$customers->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                         <button  type="submit" class="btn btn-warning">Delete</button>
@@ -71,7 +80,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table> 
                 </div>
             </div>
         </div>

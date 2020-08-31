@@ -8,7 +8,7 @@
                 <div class="card-header">
                     {{ __('List of all Items') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/glass">Glasses List</a>    
+                    <a class="btn btn-primary text-white float-right" href="/customer">Customer List</a>    
                 </div>
 
                 <div class="card-body">
@@ -20,68 +20,70 @@
 
 
                     <div class="container">
-                    <form action="/glass/{{$glasses->id}}" method="post" enctype="multipart/form-data">
+                        <form action="/customer" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                            class="form-control" value="{{$glasses->name}}" name="name" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Brand</label>
+                                <label for="">Phone</label>
                                 <input type="text"
-                            class="form-control" value="{{$glasses->brand}}" name="brand" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
                             </div>
                             
-                            <div class="form-group">
-                                <label for="">Color</label>
+                          
+
+                              <div class="form-group">
+                                <label for="">Address</label>
                                 <input type="text"
-                            class="form-control" value="{{$glasses->color}}" name="color" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
                               </div>
 
                               <div class="form-group">
-                                <label for="">Price</label>
-                                <input type="number"
-                              class="form-control" value="{{$glasses->price}}" name="price" id="" aria-describedby="helpId" placeholder="">
+                                <label for="">Location</label>
+                                <input type="text"
+                                  class="form-control" name="location" id="" aria-describedby="helpId" placeholder="">
                               </div>
+
+                              <div class="form-group">
+                                <label for="">FCM_token</label>
+                                <input type="text"
+                                  class="form-control" name="fcm_token" id="" aria-describedby="helpId" placeholder="">
+                              </div>
+
+                              
+                              <div class="form-group">
+                              <label for="">Notes</label>
+                              <textarea class="form-control" name="notes" id="" rows="3"></textarea>
+                            </div>
 
                             <div class="form-group">
-                              <label for="">description</label>
-                            <textarea class="form-control"  name="description" id="" rows="3">{{$glasses->description}}</textarea>
+                              <label for="">Gender</label>
+                              <select class="form-control" name="gender" id="">
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                              </select>
                             </div>
 
-
-                            @if ($glasses->is_available==0)
-                                
-                         
-
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="is_available" id="" value="0" checked  >
-                             is_available
-                              </label>
-                            </div>
-
-                            @else
+ 
                             <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="is_available" id="" value="1"   >
-                               is_available
+                                  <input type="checkbox" class="form-check-input" name="is_blocked" id="" >
+                                   is blocked
                                 </label>
                               </div>
-                            @endif
 <br>
-<div class="form-group">
-    <label>Image</label>
-    <input type="file" name="image">
-<img src="{{URL::to('/')}}/Img/{{$glasses->image}}" height="100px" width="100px;" alt="">
-
-<input type="hidden" name="hidden_image" value="{{$glasses->image}}">
-  
-</div>
-
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="is_verified" id="" >
+                                   is Varified
+                                </label>
+                              </div>
+                              <br>
 
                             <button type="submit" class="btn btn-primary">Save</button>
 

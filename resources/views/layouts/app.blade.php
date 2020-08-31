@@ -30,10 +30,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 40px;margin-top: 7px">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="/glass" class="nav-link"><h5>Glass</h5></a></li>
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="/customer" class="nav-link"><h5>Customer</h5></a></li>
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="/order" class="nav-link"><h5>Order</h5></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

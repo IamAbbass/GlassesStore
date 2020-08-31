@@ -8,7 +8,7 @@
                 <div class="card-header">
                     {{ __('List of all Items') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/glass/create">Create</a>    
+                    <a class="btn btn-primary text-white float-right" href="/order/create">Create</a>    
                 </div>
 
                 <div class="card-body">
@@ -23,46 +23,50 @@
                         <thead>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
+                            <th>Phone</th>
+                            <th>Address</th>
                             <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Is_Delete</th>
+                            <th>location</th>
+                            <th>Notes</th>
+                            <th>gendere</th>
+                            <th>Status</th>
+                            <th>is_Verified</th>
                             <th>Options</th>
                         </thead>
                         <tbody>
                             @php
                                 $sno = 0;
                             @endphp
-                            @foreach($glasses as $glass)
+                            @foreach($orders as $order)
                                 @php
                                     $sno++;
                                 @endphp
                                 <tr>
                                     <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                <td><img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt=""></td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
+                                    <td>{{ $order->name }}</td>
+                                    <td>{{ $order->phone }}</td>
+                                    <td>{{ $order->address }}</td>
+                                <td><img src="{{URL::to('/')}}/Img/order/{{$order->image}}" height="100px" width="120px"  alt=""></td>
+                                    <td>{{ $order->location }}</td>
+                                    <td>{{ $order->notes }}</td>
+                                    <td>{{ $order->gender }}</td>
+                                    <td>{{ $order->status }}</td>
+                                    
 
                                     <td>
-                                        @if ($glass->is_available==0)
+                                        @if ($order->is_verified==0)
                                         {{$a="true"}}
                                             @else
                                             {{$a="false"}}
                                         @endif
-                                        {{-- {{ $glass->is_available }} --}}
+                                 
                                     </td>
-                                    <td>{{ $glass->deleted_at }}</td>
+                                    
 
                                     <td align="center">
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}/edit">Edit</a>
+                                    <a class="btn btn-primary text-white" href="/order/{{$order->id}}/edit">Edit</a>
                                         <br>
-                                    <form action="/home/{{$glass->id}}" method="post">
+                                    <form action="/order/{{$order->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                         <button  type="submit" class="btn btn-warning">Delete</button>

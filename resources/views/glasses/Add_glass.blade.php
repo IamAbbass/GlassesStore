@@ -8,7 +8,7 @@
                 <div class="card-header">
                     {{ __('List of all Items') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/home">Glasses List</a>    
+                    <a class="btn btn-primary text-white float-right" href="/glass">Glasses List</a>    
                 </div>
 
                 <div class="card-body">
@@ -20,7 +20,7 @@
 
 
                     <div class="container">
-                        <form action="/home" method="post" enctype="multipart/form-data">
+                        <form action="/glass" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                               <label for="">Name</label>

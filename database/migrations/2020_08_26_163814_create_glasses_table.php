@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+
 class CreateGlassesTable extends Migration
 {
     /**
@@ -14,6 +16,7 @@ class CreateGlassesTable extends Migration
     public function up()
     {
         Schema::create('glasses', function (Blueprint $table) {
+           
             $table->id();
             $table->string('name');
             $table->string('brand');
@@ -23,6 +26,7 @@ class CreateGlassesTable extends Migration
             $table->string('price');
             $table->boolean('is_available')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -34,5 +38,6 @@ class CreateGlassesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('glasses');
+        $table->dropSoftDeletes();
     }
 }

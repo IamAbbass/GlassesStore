@@ -21,4 +21,6 @@ Route::get('/', function () {
     }
 });
 Auth::routes(['reset'=>false,'register'=>false]);
-Route::resource('/home', 'GlassesController');
+Route::resource('/glass', 'GlassesController');
+Route::resource('/customer','CustomerController');
+Route::resource('/order','OrderController');

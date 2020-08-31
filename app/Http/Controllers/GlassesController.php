@@ -27,6 +27,9 @@ class GlassesController extends Controller
     
     public function store(Request $request)
     {
+
+    
+
         $image=$request->file('image');
         $new_name=rand().'.'.$image->getClientOriginalName();
         $image->move(public_Path('/Img'),$new_name);
@@ -47,7 +50,7 @@ class GlassesController extends Controller
             'image'=>$new_name
         );
         Glasses::create($glasses_data);
-        return redirect('/home');
+        return redirect('/glass');
     }
     
     public function show(Glasses $glasses)
@@ -63,9 +66,17 @@ class GlassesController extends Controller
     
     public function update(Request $request, $id)
     {
+        
         $image_name=$request->hidden_image;
         $image = $request->file('image');
         if ($image != '') {
+
+            // When User Wants To update in image then older img will be delete
+
+            $glasses=Glasses::findOrFail($id);
+            $image_path=public_Path().'/Img/'.$glasses->image;
+            unlink($image_path);
+
             $image_name=rand().'.'.$image->getClientOriginalName();
             $image->move(public_Path('/Img'),$image_name);
         }
@@ -90,7 +101,7 @@ class GlassesController extends Controller
             'is_available'=>$is_available
         );
        Glasses::whereId($id)->update($update_glasses);
-       return redirect('/home');
+       return redirect('/glass');
      
     }
     
@@ -101,6 +112,6 @@ class GlassesController extends Controller
         $image_path=public_Path().'/Img/'.$glasses->image;
         unlink($image_path);
         Glasses::destroy($glasses->id);
-        return redirect('/home');
+        return redirect('/glass');
     }
 }

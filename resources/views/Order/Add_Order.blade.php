@@ -20,67 +20,84 @@
 
 
                     <div class="container">
-                    <form action="/glass/{{$glasses->id}}" method="post" enctype="multipart/form-data">
+                        <form action="/order" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
+
+                            <div class="form-group">
+                              <label for="">Select Glass</label>
+                              <select class="form-control" name="glass_id" id="">
+                                  @foreach ($glasses as $item)
+                              <option value="{{$item->id}}">{{$item->name}}</option>      
+                                  @endforeach
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Select Customer</label>
+                                <select class="form-control" name="customer_id" id="">
+                                    @foreach ($customers as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>      
+                                    @endforeach
+                                  
+                                </select>
+                              </div>
+
+
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                            class="form-control" value="{{$glasses->name}}" name="name" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Brand</label>
+                                <label for="">Phone</label>
                                 <input type="text"
-                            class="form-control" value="{{$glasses->brand}}" name="brand" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
                             </div>
                             
                             <div class="form-group">
-                                <label for="">Color</label>
+                                <label for="">Address</label>
                                 <input type="text"
-                            class="form-control" value="{{$glasses->color}}" name="color" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
                               </div>
 
                               <div class="form-group">
-                                <label for="">Price</label>
-                                <input type="number"
-                              class="form-control" value="{{$glasses->price}}" name="price" id="" aria-describedby="helpId" placeholder="">
+                                <label for="">location</label>
+                                <input type="text"
+                                  class="form-control" name="location" id="" aria-describedby="helpId" placeholder="">
                               </div>
 
                             <div class="form-group">
-                              <label for="">description</label>
-                            <textarea class="form-control"  name="description" id="" rows="3">{{$glasses->description}}</textarea>
+                              <label for="">Notes</label>
+                              <textarea class="form-control" name="notes" id="" rows="3"></textarea>
                             </div>
 
+                            <div class="form-group">
+                              <label for="">Gender</label>
+                              <select class="form-control" name="gender" id="">
+                                <option>male</option>
+                                <option>female</option>
+                                <option>other</option>
+                              </select>
+                            </div>
 
-                            @if ($glasses->is_available==0)
-                                
-                         
+                            <div class="form-group">
+                                <label for="">Status</label>
+                                <input type="text"
+                                  class="form-control" name="status" id="" aria-describedby="helpId" placeholder="">
+                              </div>
 
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="is_available" id="" value="0" checked  >
-                             is_available
+                                <input type="checkbox" class="form-check-input" name="is_verified" id="" value="1"  >
+                             is_verified
                               </label>
                             </div>
-
-                            @else
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="is_available" id="" value="1"   >
-                               is_available
-                                </label>
-                              </div>
-                            @endif
 <br>
-<div class="form-group">
-    <label>Image</label>
-    <input type="file" name="image">
-<img src="{{URL::to('/')}}/Img/{{$glasses->image}}" height="100px" width="100px;" alt="">
-
-<input type="hidden" name="hidden_image" value="{{$glasses->image}}">
-  
-</div>
+                            <div class="form-group">
+                              <label for="">select Image</label>
+                              <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                            </div>
 
 
                             <button type="submit" class="btn btn-primary">Save</button>

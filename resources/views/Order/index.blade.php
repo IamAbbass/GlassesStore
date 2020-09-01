@@ -22,6 +22,8 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <th>#</th>
+                            <th>Glass</th>
+                            <th>Customer</th>
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Address</th>
@@ -43,6 +45,22 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $sno }}</td>
+                                    <th>
+                                         @foreach ($glass as $item)
+                                        @if ($item->id==$order->glass_id)
+                                        {{$item->name}}
+                                        @endif
+                                    @endforeach
+                                </th>
+                                <th>
+                                    @foreach ($customer as $item)
+                                   @if ($item->id==$order->customer_id)
+                                   {{$item->name}}
+                                   @endif
+                               @endforeach
+                           </th>
+                                   
+                                   
                                     <td>{{ $order->name }}</td>
                                     <td>{{ $order->phone }}</td>
                                     <td>{{ $order->address }}</td>

@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer=Customer::latest()->get();
+        $customer=Customer::where('is_deleted','=',1)->get();;
         
         return view('Customer.index',['customer'=>$customer]);
     }
@@ -39,6 +39,16 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+        'name'=>'required|max:30|min:3',
+        'phone'=>'required',
+        'address'=>'required|max:60|min:10',
+        'location'=>'required|max:60|min:10',
+        'fcm_token'=>'required',
+        'notes'=>'required|max:30|min:3',
+       
+        
+        ]);
 
         // this code is for check is_verified value
         $is_verified;
@@ -56,6 +66,7 @@ class CustomerController extends Controller
             $is_blocked=0;
         }
 
+        $is_deleted=1;
         $customer_data=array(
             'name'=>$request->name,
             'phone'=>$request->phone,
@@ -66,6 +77,7 @@ class CustomerController extends Controller
             'notes'=>$request->notes,
             'gender'=>$request->gender,
             'is_blocked'=>$is_blocked,
+            'is_deleted'=>$is_deleted
         );
         Customer::create($customer_data);
         return redirect('/customer');
@@ -91,7 +103,13 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         $customer_edit=Customer::findOrFail($customer->id);
-        return view('Customer.Update_Customer',['customer_edit'=>$customer_edit]);
+        if ($customer_edit->is_deleted==1) {
+            return view('Customer.Update_Customer',['customer_edit'=>$customer_edit]);
+        } else {
+        return $msg="this is not your work";
+        }
+        
+      
     }
 
     /**
@@ -146,7 +164,13 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-    Customer::destroy($customer->id);
-    return redirect('/customer');
+   
+        $soft_delete=array('is_deleted'=>0);
+
+       Customer::whereId($customer->id)->update($soft_delete);
+        return redirect()->back();
+   
+        // Customer::destroy($customer->id);
+    // return redirect('/customer');
     }
 }

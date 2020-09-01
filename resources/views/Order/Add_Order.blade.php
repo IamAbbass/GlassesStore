@@ -8,7 +8,7 @@
                 <div class="card-header">
                     {{ __('List of all Items') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/glass">Glasses List</a>    
+                    <a class="btn btn-primary text-white float-right" href="/order">Glasses List</a>    
                 </div>
 
                 <div class="card-body">
@@ -46,30 +46,45 @@
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Phone</label>
                                 <input type="text"
-                                  class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
-                            </div>
+                                  class="form-control" name="phone" value="{{old('phone')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('phone')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
                             
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text"
-                                  class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="address" value="{{old('address')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('address')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                               <div class="form-group">
                                 <label for="">location</label>
                                 <input type="text"
-                                  class="form-control" name="location" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="location" value="{{old('location')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('location')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                             <div class="form-group">
                               <label for="">Notes</label>
-                              <textarea class="form-control" name="notes" id="" rows="3"></textarea>
+                              <textarea class="form-control" name="notes" id="" rows="3" required>{{old('notes')}}</textarea>
+                              @error('notes')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                             </div>
 
                             <div class="form-group">
@@ -84,19 +99,25 @@
                             <div class="form-group">
                                 <label for="">Status</label>
                                 <input type="text"
-                                  class="form-control" name="status" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="status" value="{{old('status')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('status')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="is_verified" id="" value="1"  >
+                                <input type="checkbox" class="form-check-input" name="is_verified"  id="" value="1"  >
                              is_verified
                               </label>
                             </div>
 <br>
                             <div class="form-group">
                               <label for="">select Image</label>
-                              <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                              <input type="file" class="form-control-file" name="image" value="{{old('image')}}" id="" required placeholder="" aria-describedby="fileHelpId">
+                              @error('image')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                             </div>
 
 

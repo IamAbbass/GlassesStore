@@ -8,6 +8,6 @@ class Order extends Model
 {
     protected $fillable=[
         'name','phone','is_verified','address','location','notes','gender','status','customer_id',
-        'glass_id','image',
+        'glass_id','image','is_deleted',
     ];
 }

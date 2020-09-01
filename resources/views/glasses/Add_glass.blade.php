@@ -25,7 +25,7 @@
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                                class="form-control" name="name" value="{{old('name')}}" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
                                 @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="">Brand</label>
                                 <input type="text"
-                                  class="form-control" name="brand" value="{{old('brand')}}" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="brand" value="{{old('brand')}}" id="" required aria-describedby="helpId" placeholder="">
                                   @error('brand')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="">Color</label>
                                 <input type="text"
-                                  class="form-control" name="color" value="{{old('color')}}" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="color" value="{{old('color')}}" id="" required aria-describedby="helpId" placeholder="">
                                   @error('color')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
@@ -52,7 +52,7 @@
                               <div class="form-group">
                                 <label for="">Price</label>
                                 <input type="number"
-                                  class="form-control" name="price" value="{{old('price')}}" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="price" value="{{old('price')}}" id="" required aria-describedby="helpId" placeholder="">
                                   @error('price')
                                   <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                               <label for="">description</label>
-                              <textarea class="form-control" name="description" id="" rows="3">{{old('description')}}</textarea>
+                              <textarea class="form-control" name="description" id="" rows="3" required>{{old('description')}}</textarea>
                               @error('description')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -69,14 +69,14 @@
 
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="is_available" id="" value="1"  >
+                                <input type="checkbox" class="form-check-input" name="is_available" id=""  value="1"  >
                              is_available
                               </label>
                             </div>
 <br>
                             <div class="form-group">
                               <label for="">select Image</label>
-                              <input type="file" class="form-control-file" value="{{old('image')}}" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                              <input type="file" class="form-control-file" value="{{old('image')}}" name="image" required id="" placeholder="" aria-describedby="fileHelpId">
                               @error('image')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror

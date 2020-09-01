@@ -22,6 +22,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <th>#</th>
+                           
                             <th>Name</th>
                             <th>phone</th>
                             <th>Is_Varified</th>
@@ -43,6 +44,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $sno }}</td>
+                                    
                                     <td>{{ $customers->name }}</td>
                                     <td>{{ $customers->phone }}</td>
                                     <td>

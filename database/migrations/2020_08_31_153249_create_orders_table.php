@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->longText('notes');
             $table->string('gender');
             $table->string('status');
+            $table->boolean('is_deleted')->default(false);
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->integer('glass_id')->unsigned();

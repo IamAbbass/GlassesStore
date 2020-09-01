@@ -25,39 +25,57 @@
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
-                            </div>
+                                class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                              </div>
 
                             <div class="form-group">
                                 <label for="">Phone</label>
                                 <input type="text"
-                                  class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
-                            </div>
+                                  class="form-control" name="phone" value="{{old('phone')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('phone')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
                             
                           
 
                               <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text"
-                                  class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="address" value="{{old('address')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('address')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                               <div class="form-group">
                                 <label for="">Location</label>
                                 <input type="text"
-                                  class="form-control" name="location" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="location" value="{{old('location')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('location')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                               <div class="form-group">
                                 <label for="">FCM_token</label>
                                 <input type="text"
-                                  class="form-control" name="fcm_token" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="fcm_token" value="{{old('fcm_token')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  @error('fcm_token')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                               
                               <div class="form-group">
                               <label for="">Notes</label>
-                              <textarea class="form-control" name="notes" id="" rows="3"></textarea>
+                              <textarea class="form-control" name="notes" id="" rows="3" required>{{old('notes')}}</textarea>
+                              @error('notes')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                             </div>
 
                             <div class="form-group">

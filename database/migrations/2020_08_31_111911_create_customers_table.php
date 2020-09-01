@@ -24,6 +24,7 @@ class CreateCustomersTable extends Migration
             $table->longText('notes');
             $table->string('gender');
             $table->boolean('is_blocked');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }

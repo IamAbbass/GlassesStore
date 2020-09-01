@@ -17,8 +17,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::all();
-        return view('Order.index',['orders'=>$orders]);
+        $glass=Glasses::all();
+        $customer=Customer::all();
+        $orders=Order::where('is_deleted','=',1)->get();
+        return view('Order.index',['orders'=>$orders,'glass'=>$glass,'customer'=>$customer]);
     }
 
     /**
@@ -28,8 +30,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $glasses=Glasses::all();
-       $customers=Customer::all();
+        $glasses=Glasses::where('is_deleted','=',1)->get();
+       $customers=Customer::where('is_deleted','=',1)->get();
         return view('Order.Add_Order',['glasses'=>$glasses,'customers'=>$customers]);
     }
 
@@ -41,7 +43,15 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'name'=>'required|max:30!min:3',
+            'phone'=>'required',
+            'address'=>'required|max:60!min:10',
+            'location'=>'required|max:30!min:10',
+            'notes'=>'required|max:30!min:3',
+            'status'=>'required|max:30!min:3',
+            'image'=>'required',
+        ]);
 
         $image=$request->file('image');
         $new_name=rand().'.'.$image->getClientOriginalName();
@@ -53,6 +63,7 @@ class OrderController extends Controller
         } else {
             $is_verified=0;
         }
+        $is_deleted=1;
         $order_data=array(
             'customer_id'=>$request->customer_id,
             'glass_id'=>$request->glass_id,
@@ -64,6 +75,7 @@ class OrderController extends Controller
             'gender'=>$request->gender,
             'status'=>$request->status,
             'is_verified'=>$is_verified,
+            'is_deleted'=>$is_deleted,
             'image'=>$new_name
         );
       
@@ -158,7 +170,13 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        Order::destroy($order->id);
-        return redirect('/order');
+    
+        $soft_delete=array('is_deleted'=>0);
+
+        Order::whereId($order->id)->update($soft_delete);
+        return redirect()->back();
+       
+        // Order::destroy($order->id);
+        // return redirect('/order');
     }
 }

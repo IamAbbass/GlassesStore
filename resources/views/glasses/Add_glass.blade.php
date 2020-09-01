@@ -25,30 +25,45 @@
                             <div class="form-group">
                               <label for="">Name</label>
                               <input type="text"
-                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" value="{{old('name')}}" id="" aria-describedby="helpId" placeholder="">
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Brand</label>
                                 <input type="text"
-                                  class="form-control" name="brand" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="brand" value="{{old('brand')}}" id="" aria-describedby="helpId" placeholder="">
+                                  @error('brand')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                             </div>
                             
                             <div class="form-group">
                                 <label for="">Color</label>
                                 <input type="text"
-                                  class="form-control" name="color" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="color" value="{{old('color')}}" id="" aria-describedby="helpId" placeholder="">
+                                  @error('color')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                               </div>
 
                               <div class="form-group">
                                 <label for="">Price</label>
                                 <input type="number"
-                                  class="form-control" name="price" id="" aria-describedby="helpId" placeholder="">
-                              </div>
+                                  class="form-control" name="price" value="{{old('price')}}" id="" aria-describedby="helpId" placeholder="">
+                                  @error('price')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+                                </div>
 
                             <div class="form-group">
                               <label for="">description</label>
-                              <textarea class="form-control" name="description" id="" rows="3"></textarea>
+                              <textarea class="form-control" name="description" id="" rows="3">{{old('description')}}</textarea>
+                              @error('description')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                             </div>
 
 
@@ -61,7 +76,10 @@
 <br>
                             <div class="form-group">
                               <label for="">select Image</label>
-                              <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                              <input type="file" class="form-control-file" value="{{old('image')}}" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                              @error('image')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                             </div>
 
 

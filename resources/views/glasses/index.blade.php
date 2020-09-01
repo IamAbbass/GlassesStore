@@ -55,14 +55,23 @@
                                             @else
                                             {{$a="false"}}
                                         @endif
-                                        {{-- {{ $glass->is_available }} --}}
                                     </td>
-                                    <td>{{ $glass->deleted_at }}</td>
+
+                                    <td>
+                                        @if ($glass->is_deleted==0)
+                                        {{$a="true"}}
+                                            @else
+                                            {{$a="false"}}
+                                        @endif
+                                     
+                                    </td>
+
+                                    
 
                                     <td align="center">
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}/edit">Edit</a>
+                                        <a class="btn btn-primary text-white" href="/glass/{{ $glass->id }}/edit">Edit</a>
                                         <br>
-                                    <form action="/home/{{$glass->id}}" method="post">
+                                    <form action="/glass/{{$glass->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                         <button  type="submit" class="btn btn-warning">Delete</button>

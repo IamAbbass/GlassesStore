@@ -25,8 +25,9 @@ class CreateGlassesTable extends Migration
             $table->string('color');            
             $table->string('price');
             $table->boolean('is_available')->default(true);
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
-            $table->softDeletes();
+            
         });
     }
 

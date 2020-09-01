@@ -14,7 +14,7 @@ class GlassesController extends Controller
     
     public function index()
     {
-        $glasses = Glasses::all();
+        $glasses = Glasses::where('is_deleted','=',1)->get();
         return view('glasses.index',[
             'glasses' => $glasses,
         ]);
@@ -28,6 +28,14 @@ class GlassesController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'name' => 'required|max:30|min:3',
+            'brand' => 'required|max:30|min:3',
+            'description' => 'required|max:330|min:3',
+            'color' => 'required|max:20|min:3',
+            'price' => 'required',
+            'image' => 'required',
+        ]);
     
 
         $image=$request->file('image');
@@ -40,6 +48,7 @@ class GlassesController extends Controller
         } else {
             $is_available=0;
         }
+        $is_deleted=1;
         $glasses_data=array(
             'name'=>$request->name,
             'brand'=>$request->brand,
@@ -47,6 +56,7 @@ class GlassesController extends Controller
             'color'=>$request->color,
             'price'=>$request->price,
             'is_available'=>$is_available,
+            'is_deleted'=>$is_deleted,
             'image'=>$new_name
         );
         Glasses::create($glasses_data);
@@ -61,7 +71,13 @@ class GlassesController extends Controller
     public function edit(Glasses $glasses,$id)
     {
         $glasses=Glasses::findOrFail($id);
-        return view('glasses.Update_glass',['glasses'=>$glasses]);
+        if ($glasses->is_deleted==1) {
+            return view('glasses.Update_glass',['glasses'=>$glasses]);
+        } else {
+          return $msg="this is not your work";
+        }
+        
+        // return view('glasses.Update_glass',['glasses'=>$glasses]);
     }
     
     public function update(Request $request, $id)
@@ -108,10 +124,16 @@ class GlassesController extends Controller
     public function destroy($id)
     {
      
-        $glasses=Glasses::findOrFail($id);
-        $image_path=public_Path().'/Img/'.$glasses->image;
-        unlink($image_path);
-        Glasses::destroy($glasses->id);
-        return redirect('/glass');
+        $soft_delete=array('is_deleted'=>0);
+
+        Glasses::whereId($id)->update($soft_delete);
+        return redirect()->back();
+        
+
+        // $glasses=Glasses::findOrFail($id);
+        // $image_path=public_Path().'/Img/'.$glasses->image;
+        // unlink($image_path);
+        // Glasses::destroy($glasses->id);
+        // return redirect('/glass');
     }
 }

@@ -28,16 +28,6 @@ class GlassesController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|max:30|min:3',
-            'brand' => 'required|max:30|min:3',
-            'description' => 'required|max:330|min:3',
-            'color' => 'required|max:20|min:3',
-            'price' => 'required',
-            'image' => 'required',
-        ]);
-    
-
         $image=$request->file('image');
         $new_name=rand().'.'.$image->getClientOriginalName();
         $image->move(public_Path('/Img'),$new_name);

@@ -6,9 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ __('List of all Items') }}     
+                    {{ __('Add New Order') }}     
 
-                    <a class="btn btn-primary text-white float-right" href="/order">Glasses List</a>    
+                    <a class="btn btn-primary text-white float-right" href="/order">Order List</a>    
                 </div>
 
                 <div class="card-body">
@@ -47,44 +47,29 @@
                               <label for="">Name</label>
                               <input type="text"
                                 class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
-                                @error('name')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Phone</label>
                                 <input type="text"
                                   class="form-control" name="phone" value="{{old('phone')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('phone')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                                 </div>
                             
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text"
                                   class="form-control" name="address" value="{{old('address')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('address')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                                 </div>
 
                               <div class="form-group">
                                 <label for="">location</label>
                                 <input type="text"
                                   class="form-control" name="location" value="{{old('location')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('location')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                                 </div>
 
                             <div class="form-group">
                               <label for="">Notes</label>
                               <textarea class="form-control" name="notes" id="" rows="3" required>{{old('notes')}}</textarea>
-                              @error('notes')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
                             </div>
 
                             <div class="form-group">
@@ -100,9 +85,6 @@
                                 <label for="">Status</label>
                                 <input type="text"
                                   class="form-control" name="status" value="{{old('status')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('status')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                                 </div>
 
                             <div class="form-check">
@@ -115,9 +97,6 @@
                             <div class="form-group">
                               <label for="">select Image</label>
                               <input type="file" class="form-control-file" name="image" value="{{old('image')}}" id="" required placeholder="" aria-describedby="fileHelpId">
-                              @error('image')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
                             </div>
 
 

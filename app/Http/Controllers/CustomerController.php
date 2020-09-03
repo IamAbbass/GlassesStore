@@ -39,17 +39,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'name'=>'required|max:30|min:3',
-        'phone'=>'required',
-        'address'=>'required|max:60|min:10',
-        'location'=>'required|max:60|min:10',
-        'fcm_token'=>'required',
-        'notes'=>'required|max:30|min:3',
        
-        
-        ]);
-
         // this code is for check is_verified value
         $is_verified;
         if ($request->get('is_verified')==null) {

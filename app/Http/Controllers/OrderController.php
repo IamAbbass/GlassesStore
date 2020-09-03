@@ -43,15 +43,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required|max:30!min:3',
-            'phone'=>'required',
-            'address'=>'required|max:60!min:10',
-            'location'=>'required|max:30!min:10',
-            'notes'=>'required|max:30!min:3',
-            'status'=>'required|max:30!min:3',
-            'image'=>'required',
-        ]);
+        
 
         $image=$request->file('image');
         $new_name=rand().'.'.$image->getClientOriginalName();

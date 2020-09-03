@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ __('List of all Items') }}     
+                    {{ __('Add New Glass') }}     
 
                     <a class="btn btn-primary text-white float-right" href="/glass">Glasses List</a>    
                 </div>
@@ -26,44 +26,29 @@
                               <label for="">Name</label>
                               <input type="text"
                                 class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
-                                @error('name')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Brand</label>
                                 <input type="text"
                                   class="form-control" name="brand" value="{{old('brand')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('brand')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                             </div>
                             
                             <div class="form-group">
                                 <label for="">Color</label>
                                 <input type="text"
                                   class="form-control" name="color" value="{{old('color')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('color')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                               </div>
 
                               <div class="form-group">
                                 <label for="">Price</label>
                                 <input type="number"
                                   class="form-control" name="price" value="{{old('price')}}" id="" required aria-describedby="helpId" placeholder="">
-                                  @error('price')
-                                  <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
                                 </div>
 
                             <div class="form-group">
                               <label for="">description</label>
                               <textarea class="form-control" name="description" id="" rows="3" required>{{old('description')}}</textarea>
-                              @error('description')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
                             </div>
 
 
@@ -77,9 +62,6 @@
                             <div class="form-group">
                               <label for="">select Image</label>
                               <input type="file" class="form-control-file" value="{{old('image')}}" name="image" required id="" placeholder="" aria-describedby="fileHelpId">
-                              @error('image')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
                             </div>
 
 
@@ -87,44 +69,6 @@
 
                         </form>
                     </div>
-
-{{--                     
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Options</th>
-                        </thead>
-                        <tbody>
-                            @php
-                                $sno = 0;
-                            @endphp
-                            @foreach($glasses as $glass)
-                                @php
-                                    $sno++;
-                                @endphp
-                                <tr>
-                                    <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                    <td>{{ $glass->image }}</td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
-                                    <td>{{ $glass->is_available }}</td>
-                                    <td>
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}">Edit</a>    
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
                 </div>
             </div>
         </div>

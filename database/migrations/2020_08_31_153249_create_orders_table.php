@@ -25,10 +25,19 @@ class CreateOrdersTable extends Migration
             $table->string('gender');
             $table->string('status');
             $table->boolean('is_deleted')->default(false);
-            $table->integer('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->integer('glass_id')->unsigned();
-            $table->foreign('glass_id')->references('id')->on('glasses');
+<<<<<<< HEAD
+            $table->integer('customer_id');
+            $table->integer('glass_id');
+           
+=======
+       
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> dc5d4b65a4d9f38d3f77de05c0e01e8d3bd42919
+=======
+>>>>>>> dc5d4b65a4d9f38d3f77de05c0e01e8d3bd42919
+=======
+>>>>>>> dc5d4b65a4d9f38d3f77de05c0e01e8d3bd42919
             $table->timestamps();
         });
     }

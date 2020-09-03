@@ -29,7 +29,7 @@
                             <th>Color</th>
                             <th>Price</th>
                             <th>Available</th>
-                            <th>Is_Delete</th>
+                            {{-- <th>Is_Delete</th> --}}
                             <th>Options</th>
                         </thead>
                         <tbody>
@@ -57,14 +57,14 @@
                                         @endif
                                     </td>
 
-                                    <td>
+                                    {{-- <td>
                                         @if ($glass->is_deleted==0)
                                         {{$a="true"}}
                                             @else
                                             {{$a="false"}}
                                         @endif
                                      
-                                    </td>
+                                    </td> --}}
 
                                     
 

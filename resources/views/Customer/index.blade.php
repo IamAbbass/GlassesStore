@@ -2,11 +2,48 @@
 
 @section('content')
 <div class="container">
+
+    {{-- Alert For Add Customer --}}
+
+    @if (\Session::has('added_customer'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{!! \Session::get('added_customer') !!}</strong> 
+    </div>
+    @endif
+
+    {{-- Alert For Delete Customer --}}
+
+    @if (\Session::has('deleted_customer'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{!! \Session::get('deleted_customer') !!}</strong> 
+    </div>
+    @endif
+
+    {{-- Alert For Update Customer --}}
+    
+    @if (\Session::has('update_customer'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{!! \Session::get('update_customer') !!}</strong> 
+    </div>
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ __('List of all Items') }}     
+                    {{ __('List Of All Customer') }}     
 
                     <a class="btn btn-primary text-white float-right" href="/customer/create">Create</a>    
                 </div>
@@ -25,13 +62,13 @@
                            
                             <th>Name</th>
                             <th>phone</th>
-                            <th>Is_Varified</th>
+                            <th>Varified</th>
                             <th>Address</th>
-                            <th>location</th>
-                            <th>FCM_Token</th>
+                            <th>Location</th>
+                            <th>FCM Token</th>
                             <th>Notes</th>
-                            <th>gender</th>
-                            <th>Is_Blocked</th>
+                            <th>Gender</th>
+                            <th>Blocked</th>
                             <th>Options</th>
                         </thead>
                         <tbody>

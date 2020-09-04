@@ -34,7 +34,7 @@
                               @foreach ($glasses as $item)
                                   @if ($order_edit->glass_id==$item->id)
                                   
-                                  <h5> &nbsp; current glass : ( {{$item->name}} )</h5>
+                                  <h5> &nbsp; Current Glass : ( {{$item->name}} )</h5>
                                       
                                   @endif
                               @endforeach
@@ -51,7 +51,7 @@
                                 @foreach ($customers as $item)
                                   @if ($order_edit->customer_id==$item->id)
                                   
-                                  <h5> &nbsp; current customer  : ( {{$item->name}} )</h5>
+                                  <h5> &nbsp; Current Customer  : ( {{$item->name}} )</h5>
                                       
                                   @endif
                               @endforeach
@@ -78,7 +78,7 @@
                               </div>
 
                               <div class="form-group">
-                                <label for="">location</label>
+                                <label for="">Location</label>
                                 <input type="text"
                                   class="form-control" name="location" value="{{$order_edit->location}}" id="" aria-describedby="helpId" placeholder="">
                               </div>
@@ -91,9 +91,9 @@
                             <div class="form-group">
                               <label for="">Gender</label>
                               <select class="form-control" name="gender" id="">
-                                <option>male</option>
-                                <option>female</option>
-                                <option>other</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
                               </select>
 
                             <h5>Current Gender ( {{$order_edit->gender}} )</h5>
@@ -110,7 +110,7 @@
                               <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_verified" id="" value="1" checked >
-                               is_verified
+                               Verified
                                 </label>
                               </div>
                               <br>
@@ -118,7 +118,7 @@
                               <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_verified" id="" value="1"  >
-                               is_verified
+                             Verified
                                 </label>
                               </div>
                               @endif
@@ -139,43 +139,6 @@
                         </form>
                     </div>
 
-{{--                     
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Options</th>
-                        </thead>
-                        <tbody>
-                            @php
-                                $sno = 0;
-                            @endphp
-                            @foreach($glasses as $glass)
-                                @php
-                                    $sno++;
-                                @endphp
-                                <tr>
-                                    <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                    <td>{{ $glass->image }}</td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
-                                    <td>{{ $glass->is_available }}</td>
-                                    <td>
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}">Edit</a>    
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
                 </div>
             </div>
         </div>

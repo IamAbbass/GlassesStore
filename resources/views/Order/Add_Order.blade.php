@@ -62,7 +62,7 @@
                                 </div>
 
                               <div class="form-group">
-                                <label for="">location</label>
+                                <label for="">Location</label>
                                 <input type="text"
                                   class="form-control" name="location" value="{{old('location')}}" id="" required aria-describedby="helpId" placeholder="">
                                 </div>
@@ -75,9 +75,9 @@
                             <div class="form-group">
                               <label for="">Gender</label>
                               <select class="form-control" name="gender" id="">
-                                <option>male</option>
-                                <option>female</option>
-                                <option>other</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
                               </select>
                             </div>
 
@@ -90,12 +90,12 @@
                             <div class="form-check">
                               <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="is_verified"  id="" value="1"  >
-                             is_verified
+                             Verified
                               </label>
                             </div>
 <br>
                             <div class="form-group">
-                              <label for="">select Image</label>
+                              <label for="">Select Image</label>
                               <input type="file" class="form-control-file" name="image" value="{{old('image')}}" id="" required placeholder="" aria-describedby="fileHelpId">
                             </div>
 

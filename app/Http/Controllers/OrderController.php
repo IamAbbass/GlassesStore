@@ -74,7 +74,7 @@ class OrderController extends Controller
 
 
         Order::create($order_data);
-        return redirect()->back();
+        return redirect('/order')->with('added_order','Order Added SuccessFully');
     }
 
     /**
@@ -151,7 +151,7 @@ class OrderController extends Controller
           
         );
       Order::whereId($order->id)->update($update_order);
-       return redirect('/order');
+       return redirect('/order')->with('updated_order','Order Updated SuccessFully');
     }
 
     /**
@@ -166,7 +166,7 @@ class OrderController extends Controller
         $soft_delete=array('is_deleted'=>0);
 
         Order::whereId($order->id)->update($soft_delete);
-        return redirect()->back();
+        return redirect()->back()->with('deleted_order','Order Deleted SuccessFully');
        
         // Order::destroy($order->id);
         // return redirect('/order');

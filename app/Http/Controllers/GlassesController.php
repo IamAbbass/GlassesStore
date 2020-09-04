@@ -50,7 +50,7 @@ class GlassesController extends Controller
             'image'=>$new_name
         );
         Glasses::create($glasses_data);
-        return redirect('/glass');
+        return redirect('/glass')->with('glass_added','Glass Added SuccessFully');
     }
     
     public function show(Glasses $glasses)
@@ -107,7 +107,7 @@ class GlassesController extends Controller
             'is_available'=>$is_available
         );
        Glasses::whereId($id)->update($update_glasses);
-       return redirect('/glass');
+       return redirect('/glass')->with('glass_updated','Glass Updated SuccessFully');
      
     }
     
@@ -117,7 +117,7 @@ class GlassesController extends Controller
         $soft_delete=array('is_deleted'=>0);
 
         Glasses::whereId($id)->update($soft_delete);
-        return redirect()->back();
+        return redirect()->back()->with('glass_deleted','Glass Deleted SuccessFully');
         
 
         // $glasses=Glasses::findOrFail($id);

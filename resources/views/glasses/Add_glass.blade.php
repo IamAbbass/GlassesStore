@@ -47,7 +47,7 @@
                                 </div>
 
                             <div class="form-group">
-                              <label for="">description</label>
+                              <label for="">Description</label>
                               <textarea class="form-control" name="description" id="" rows="3" required>{{old('description')}}</textarea>
                             </div>
 
@@ -55,12 +55,12 @@
                             <div class="form-check">
                               <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="is_available" id=""  value="1"  >
-                             is_available
+                             Available
                               </label>
                             </div>
 <br>
                             <div class="form-group">
-                              <label for="">select Image</label>
+                              <label for="">Select Image</label>
                               <input type="file" class="form-control-file" value="{{old('image')}}" name="image" required id="" placeholder="" aria-describedby="fileHelpId">
                             </div>
 

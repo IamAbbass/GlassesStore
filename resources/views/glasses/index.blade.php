@@ -2,11 +2,50 @@
 
 @section('content')
 <div class="container">
+
+   
+    {{-- Alert For Insert Glass --}}
+
+    @if (\Session::has('glass_added'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{!! \Session::get('glass_added') !!}</strong> 
+    </div>
+    @endif
+
+    {{-- Alert For Delete --}}
+
+    @if (\Session::has('glass_deleted'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{!! \Session::get('glass_deleted') !!}</strong> 
+    </div>
+    @endif
+       
+  {{-- Alert For Update --}}
+
+  @if (\Session::has('glass_updated'))
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+      </button>
+      <strong>{!! \Session::get('glass_updated') !!}</strong> 
+  </div>
+  @endif
+
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ __('List of all Items') }}     
+                    {{ __('List of all Glass') }}     
 
                     <a class="btn btn-primary text-white float-right" href="/glass/create">Create</a>    
                 </div>
@@ -41,41 +80,31 @@
                                     $sno++;
                                 @endphp
                                 <tr>
-                                    <td>{{ $sno }}</td>
+                                    <td>{{ $sno }}</td>  
                                     <td>{{ $glass->name }}</td>
                                     <td>{{ $glass->brand }}</td>
                                     <td>{{ $glass->description }}</td>
-                                <td><img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt=""></td>
+                                    <td>
+                                        <img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt="">
+                                    </td>
                                     <td>{{ $glass->color }}</td>
                                     <td>{{ $glass->price }}</td>
-
                                     <td>
                                         @if ($glass->is_available==0)
-                                        {{$a="true"}}
+                                        {{$a="True"}}
                                             @else
-                                            {{$a="false"}}
+                                            {{$a="False"}}
                                         @endif
                                     </td>
-
-                                    {{-- <td>
-                                        @if ($glass->is_deleted==0)
-                                        {{$a="true"}}
-                                            @else
-                                            {{$a="false"}}
-                                        @endif
-                                     
-                                    </td> --}}
-
-                                    
 
                                     <td align="center">
                                         <a class="btn btn-primary text-white" href="/glass/{{ $glass->id }}/edit">Edit</a>
                                         <br>
-                                    <form action="/glass/{{$glass->id}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
+                                        <form action="/glass/{{$glass->id}}" method="post">
+                                         @csrf
+                                         @method('DELETE')
                                         <button  type="submit" class="btn btn-warning">Delete</button>
-                                    </form>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

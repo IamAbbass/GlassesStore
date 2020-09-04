@@ -1,7 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <div class="container">
+
+    {{-- Alert For Add Order  --}}
+
+@if (\Session::has('added_order'))
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <strong>{!! \Session::get('added_order') !!}</strong> 
+</div>
+@endif
+
+{{-- Alert For Delete Order --}}
+
+@if (\Session::has('deleted_order'))
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <strong>{!! \Session::get('deleted_order') !!}</strong> 
+</div>
+@endif
+
+{{-- Alert For Updated Order --}}
+
+@if (\Session::has('updated_order'))
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <strong>{!! \Session::get('updated_order') !!}</strong> 
+</div>
+@endif
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -28,11 +68,11 @@
                             <th>Phone</th>
                             <th>Address</th>
                             <th>Image</th>
-                            <th>location</th>
+                            <th>Location</th>
                             <th>Notes</th>
-                            <th>gendere</th>
+                            <th>Gendere</th>
                             <th>Status</th>
-                            <th>is_Verified</th>
+                            <th>Verified</th>
                             <th>Options</th>
                         </thead>
                         <tbody>

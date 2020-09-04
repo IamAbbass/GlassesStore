@@ -73,14 +73,14 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_blocked" id="" >
-                                   is blocked
+                                 Blocked
                                 </label>
                               </div>
 <br>
                               <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_verified" id="" >
-                                   is Varified
+                                   Verified
                                 </label>
                               </div>
                               <br>

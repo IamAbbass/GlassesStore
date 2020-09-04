@@ -70,7 +70,7 @@ class CustomerController extends Controller
             'is_deleted'=>$is_deleted
         );
         Customer::create($customer_data);
-        return redirect('/customer');
+        return redirect('/customer')->with('added_customer','Customer Added SuccessFully');
     }
 
     /**
@@ -139,7 +139,7 @@ class CustomerController extends Controller
             'is_blocked'=>$is_blocked,
         );
        Customer::whereId($customer->id)->update($customer_update);
-       return redirect('/customer');
+       return redirect('/customer')->with('update_customer','Customer Upadeted SuccessFully');
         
 
 
@@ -158,7 +158,7 @@ class CustomerController extends Controller
         $soft_delete=array('is_deleted'=>0);
 
        Customer::whereId($customer->id)->update($soft_delete);
-        return redirect()->back();
+        return redirect()->back()->with('deleted_customer','Customer Deleted SuccessFully');
    
         // Customer::destroy($customer->id);
     // return redirect('/customer');

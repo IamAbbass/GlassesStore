@@ -50,7 +50,7 @@
                               </div>
 
                               <div class="form-group">
-                                <label for="">FCM_token</label>
+                                <label for="">FCM Token</label>
                                 <input type="text"
                                   class="form-control" name="fcm_token" value="{{$customer_edit->fcm_token}}" id="" aria-describedby="helpId" placeholder="">
                               </div>
@@ -76,7 +76,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_blocked" id="" value="0" checked >
-                                   is blocked
+                                   Blocked
                                 </label>
                               </div>
 
@@ -85,7 +85,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_blocked" value="1" id="" >
-                                   is blocked
+                                 Blocked
                                 </label>
                               </div>
 
@@ -96,7 +96,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" value="0" name="is_verified" id="" checked >
-                                   is Varified
+                                   Varified
                                 </label>
                               </div>
                                 
@@ -105,7 +105,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" value="1" name="is_verified" id="" >
-                                   is Varified
+                                    Varified
                                 </label>
                               </div>
 
@@ -118,43 +118,6 @@
                         </form>
                     </div>
 
-{{--                     
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Options</th>
-                        </thead>
-                        <tbody>
-                            @php
-                                $sno = 0;
-                            @endphp
-                            @foreach($glasses as $glass)
-                                @php
-                                    $sno++;
-                                @endphp
-                                <tr>
-                                    <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                    <td>{{ $glass->image }}</td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
-                                    <td>{{ $glass->is_available }}</td>
-                                    <td>
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}">Edit</a>    
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
                 </div>
             </div>
         </div>

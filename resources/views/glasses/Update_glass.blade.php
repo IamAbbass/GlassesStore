@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ __('List of all Items') }}     
+                    {{ __('Update Glass') }}     
 
                     <a class="btn btn-primary text-white float-right" href="/glass">Glasses List</a>    
                 </div>
@@ -48,7 +48,7 @@
                               </div>
 
                             <div class="form-group">
-                              <label for="">description</label>
+                              <label for="">Description</label>
                             <textarea class="form-control"  name="description" id="" rows="3">{{$glasses->description}}</textarea>
                             </div>
 
@@ -60,7 +60,7 @@
                             <div class="form-check">
                               <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="is_available" id="" value="0" checked  >
-                             is_available
+                            Available
                               </label>
                             </div>
 
@@ -68,7 +68,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="is_available" id="" value="1"   >
-                               is_available
+                              Available
                                 </label>
                               </div>
                             @endif
@@ -88,43 +88,6 @@
                         </form>
                     </div>
 
-{{--                     
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Brand</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Color</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Options</th>
-                        </thead>
-                        <tbody>
-                            @php
-                                $sno = 0;
-                            @endphp
-                            @foreach($glasses as $glass)
-                                @php
-                                    $sno++;
-                                @endphp
-                                <tr>
-                                    <td>{{ $sno }}</td>
-                                    <td>{{ $glass->name }}</td>
-                                    <td>{{ $glass->brand }}</td>
-                                    <td>{{ $glass->description }}</td>
-                                    <td>{{ $glass->image }}</td>
-                                    <td>{{ $glass->color }}</td>
-                                    <td>{{ $glass->price }}</td>
-                                    <td>{{ $glass->is_available }}</td>
-                                    <td>
-                                        <a class="btn btn-primary text-white" href="/home/{{ $glass->id }}">Edit</a>    
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
                 </div>
             </div>
         </div>

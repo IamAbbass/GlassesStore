@@ -20,6 +20,10 @@ Route::get('/', function () {
         return redirect('/login');
     }
 });
+
+Route::get('/webapp','WebAppController@index');
+Route::get("/webapp/{id}",'WebAppController@findglass');
+
 Auth::routes(['reset'=>false,'register'=>false]);
 Route::resource('/glass', 'GlassesController');
 Route::resource('/customer','CustomerController');

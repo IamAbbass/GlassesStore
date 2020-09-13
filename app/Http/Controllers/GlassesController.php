@@ -45,6 +45,7 @@ class GlassesController extends Controller
             'description'=>$request->description,
             'color'=>$request->color,
             'price'=>$request->price,
+            'gender'=>$request->gender,
             'is_available'=>$is_available,
             'is_deleted'=>$is_deleted,
             'image'=>$new_name
@@ -101,6 +102,7 @@ class GlassesController extends Controller
             'name'=>$request->name,
             'brand'=>$request->brand,
             'color'=>$request->color,
+            'gender'=>$request->gender,
             'description'=>$request->description,
             'price'=>$request->price,
             'image'=>$image_name,

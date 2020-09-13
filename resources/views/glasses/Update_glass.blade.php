@@ -42,6 +42,16 @@
                               </div>
 
                               <div class="form-group">
+                                <label for="">gender</label>
+                                <select class="form-control" name="gender" id="">
+                                <option >{{$glasses->gender}}</option>
+                                  <option>Male</option>
+                                  <option>Female</option>
+                                  <option>Kids</option>
+                                </select>
+                              </div>
+
+                              <div class="form-group">
                                 <label for="">Price</label>
                                 <input type="number"
                               class="form-control" value="{{$glasses->price}}" name="price" id="" aria-describedby="helpId" placeholder="">

@@ -39,6 +39,14 @@
                                 <input type="text"
                                   class="form-control" name="color" value="{{old('color')}}" id="" required aria-describedby="helpId" placeholder="">
                               </div>
+                              <div class="form-group">
+                                <label for="">Gender</label>
+                                <select class="form-control" name="gender" id="">
+                                  <option>Male</option>
+                                  <option>Female</option>
+                                  <option>Kids</option>
+                                </select>
+                              </div>
 
                               <div class="form-group">
                                 <label for="">Price</label>

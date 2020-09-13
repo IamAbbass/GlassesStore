@@ -66,6 +66,7 @@
                             <th>Description</th>
                             <th>Image</th>
                             <th>Color</th>
+                            <th>Gender</th>
                             <th>Price</th>
                             <th>Available</th>
                             {{-- <th>Is_Delete</th> --}}
@@ -88,6 +89,8 @@
                                         <img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt="">
                                     </td>
                                     <td>{{ $glass->color }}</td>
+                                    <td>{{ $glass->gender }}</td>
+
                                     <td>{{ $glass->price }}</td>
                                     <td>
                                         @if ($glass->is_available==0)

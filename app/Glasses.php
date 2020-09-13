@@ -14,6 +14,6 @@ class Glasses extends Model
     
 
    protected $fillable=[
-       'name','brand','color','price','description','is_available','image','is_deleted',
+       'name','brand','color','price','gender','description','is_available','image','is_deleted',
    ];
 }

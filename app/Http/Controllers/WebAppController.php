@@ -22,4 +22,9 @@ class WebAppController extends Controller
       $find=Glasses::findOrFail($glass_id);
       return view("Frontend.Pages.MainPage_Click",['find'=>$find]);
    }
+   public function allglasses(){
+      $glasses=Glasses::where('gender','=','Male')->get();
+      return "i am working on this button";
+      return view('Frontend.Pages.AllGlasses',['glasses'=>$glasses]);
+   }
 }

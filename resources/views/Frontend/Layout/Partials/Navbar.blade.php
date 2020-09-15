@@ -7,21 +7,31 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand"><br/><br/><h2 style="margin-right:30px;">WebApp</h2></a>
+            <a href="/webapp" class="navbar-brand"><br/><br/><h2 style="margin-right:30px;">WebApp</h2></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav">
-                <li class="active slide"><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a>
+                <li class="active slide"><a href="/webapp"><span class="glyphicon glyphicon-home"></span> Home</a>
                     </li>
                 
 <li class="slide"><a href="Gallery.html"> Gallery</a></li>
+
+@php
+    $men=1;
+    $women=2;
+    $kids=3;
+@endphp
+
+                <li class="slide"><a href="/allglasses/{{$men}}"> Men</a></li>
+                <li class="slide"><a href="/allglasses/{{$women}}"> Women</a></li>
+                <li class="slide"><a href="/allglasses/{{$kids}}"> Kids</a></li>
                         
                         
                         
                    
                 
                 
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-shopping-bag"></span> Product <span class="caret"></span></a> 
+                {{-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-shopping-bag"></span> Product <span class="caret"></span></a> 
                     <ul class="dropdown-menu" role="menu">
                         <li class="slide"><a href="Flexon Glasses.html">● flexon glasses</a></li>
                         <li class="slide"><a href="Burberry Glasses.html">● burberry glasses</a></li>
@@ -29,7 +39,7 @@
                         <li class="slide"><a href="Parada Glasses.html">● parada glasses</a></li>
                         
                     </ul>
-                </li>
+                </li> --}}
                 
                 <li class="slide"><a href="Feedback.html">Feed Back</a></li>
                 

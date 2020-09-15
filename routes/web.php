@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/webapp','WebAppController@index');
 Route::get("/webapp/{id}",'WebAppController@findglass');
-Route::get("/allglasses",'WebAppController@allglasses');
+Route::get("/allglasses/{gender}",'WebAppController@allglasses');
 
 Auth::routes(['reset'=>false,'register'=>false]);
 Route::resource('/glass', 'GlassesController');

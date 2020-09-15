@@ -17,6 +17,7 @@
               
               <div style="margin-top: 0px;width: 100%" align="center">
                <br><br><br><br>
+               
               <a href=""  style="width: 80%" class="btn btn-success">Order Now</a>
 </div>
           
@@ -26,7 +27,10 @@
          <div class="single-contant">
          <h2>Name  : <span ><b>{{$find->name}}</b></span></h2>
          <h2>Price : <span><b>{{$find->price}}</b></span></h2>
+         <h2>Brand : <span> <b>{{$find->brand}}<b></span></h2>
          <h2>Description : <span> <b>{{$find->description}}<b></span></h2>
+          
+
          </div>   
          
        

@@ -82,7 +82,10 @@
    </div>
 </div>
    <div class="container btn-showmore">
-    <a href="/allglasses" class="btn btn-warning">Shoe more...</a>
+     <@php
+         $male=1;
+     @endphp
+    <a href="/allglasses/{{$male}}" class="btn btn-warning">Show more...</a>
     </div>
 
  </div> <!--row end-->
@@ -92,7 +95,7 @@
 
 <!-- women -->
 <div class="container wow bounceInRight">
-  <center><strong style="font:signature; font-size:36px" id="Backpack" class="thumbnail">Glasses For Men</strong></center><br />
+  <center><strong style="font:signature; font-size:36px" id="Backpack" class="thumbnail">Glasses For Women</strong></center><br />
   <center><h6 style="font-size:18px">Prescription Eyeglasses Store | 50% Off Lenses and Add-Ons! Buy the web's best designer glasses frames, RX eye glasses, prescription glasses styles online.</h6></center></div>
   
 <div class="container-fluid wow bounceInDown">
@@ -123,18 +126,21 @@
    </div>
 </div>
    <div class="container btn-showmore">
-    <a href="/allglasses" class="btn btn-warning">Shoe more...</a>
+    <@php
+         $female=2;
+     @endphp
+    <a href="/allglasses/{{$female}}" class="btn btn-warning">Show more...</a>
     </div>
 
  </div> <!--row end-->
  </div> <!--container end-->
 </div> 
-<!-- men end -->
+<!-- women end -->
 
 
 <!-- kids -->
 <div class="container wow bounceInRight">
-  <center><strong style="font:signature; font-size:36px" id="Backpack" class="thumbnail">Glasses For Men</strong></center><br />
+  <center><strong style="font:signature; font-size:36px" id="Backpack" class="thumbnail">Glasses For Kids</strong></center><br />
   <center><h6 style="font-size:18px">Prescription Eyeglasses Store | 50% Off Lenses and Add-Ons! Buy the web's best designer glasses frames, RX eye glasses, prescription glasses styles online.</h6></center></div>
   
 <div class="container-fluid wow bounceInDown">
@@ -165,13 +171,16 @@
    </div>
 </div>
    <div class="container btn-showmore">
-      <a href="/allglasses" class="btn btn-warning">Shoe more...</a>
-    </div>
+    <@php
+    $kids=3;
+@endphp
+<a href="/allglasses/{{$kids}}" class="btn btn-warning">Show more...</a>
+</div>
 
  </div> <!--row end-->
  </div> <!--container end-->
 </div> 
-<!-- men end -->
+<!-- Kids end -->
 
 
                      @endsection

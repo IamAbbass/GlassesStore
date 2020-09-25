@@ -1,8 +1,11 @@
-{{-- @extends('layouts.app') --}}
 
 @extends('Frontend.Layout.Layout')
+@section('Contant')
 
-<br><br><br><br>
+<br><br><br><br><br>
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,20 +13,16 @@
              <h4>   <div class="card-header">{{ __('Register') }}</div></h4>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="/profile/{{$customer->user_id}}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control " name="name" value="{{$user->name}}" required autocomplete="name" >
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                               
                             </div>
                         </div>
 
@@ -31,13 +30,9 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control " name="email" value="{{ $user->email }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              
                             </div>
                         </div>
 
@@ -45,37 +40,33 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control"  name="password" >
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <!-- <div class="form-group row">
+                         {{-- <div class="form-group row">
                               <label for="" class="col-md-4 col-form-label text-md-right">Name</label>
                               <div class="col-md-6">
                               <input type="text"
                                 class="form-control" name="name" value="{{old('name')}}" id="" required aria-describedby="helpId" placeholder="">
                               </div>
-                              </div> -->
+                              </div>  --}}
 
                             <div class="form-group row">
                                 <label for="" class="col-md-4 col-form-label text-md-right">Phone</label>
                                 <div class="col-md-6">
                                 <input type="text"
-                                  class="form-control" name="phone" value="{{old('phone')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="phone" value="{{$customer->phone}}" id="" required aria-describedby="helpId" placeholder="">
                                 </div>
                                 </div>
                             
@@ -85,7 +76,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Address</label>
                                 <div class="col-md-6">
                                 <input type="text"
-                                  class="form-control" name="address" value="{{old('address')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="address" value="{{$customer->address}}" id="" required aria-describedby="helpId" placeholder="">
                                   </div>
                                 </div>
 
@@ -95,34 +86,16 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Location</label>
                                 <div class="col-md-6">
                                 <input type="text"
-                                  class="form-control" name="location" value="{{old('location')}}" id="" required aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="location" value="{{$customer->location}}" id="" required aria-describedby="helpId" placeholder="">
                                 </div>
                                 </div>
 
-
-
-                              <!-- <div class="form-group row">
-                                <label for="" class="col-md-4 col-form-label text-md-right">FCM_token</label>
-                                <div class="col-md-6">
-                                <input type="text"
-                                  class="form-control" name="fcm_token" value="{{old('fcm_token')}}" id="" required aria-describedby="helpId" placeholder="">
-                                </div>
-                                </div> -->
-
-
-
-
-                              <!-- <div class="form-group row">
-                              <label for="" class="col-md-4 col-form-label text-md-right">Notes</label>
-                              <div class="col-md-6">
-                              <textarea class="form-control" name="notes" id="" rows="3" required>{{old('notes')}}</textarea>
-                            </div>
-                            </div> -->
 
                             <div class="form-group row">
                               <label for="" class="col-md-4 col-form-label text-md-right">Gender</label>
                               <div class="col-md-6">
                               <select class="form-control" name="gender" id="">
+                              <option>{{$customer->gender}}</option>
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Other</option>
@@ -132,27 +105,14 @@
 
  
 
-                                <!-- this code is for block and verified -->
+                              
 
-                            <!-- <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="is_blocked" id="" >
-                                 Blocked
-                                </label>
-                              </div>
-<br>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="is_verified" id="" >
-                                   Verified
-                                </label>
-                              </div> -->
                           
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    Update profile
                                 </button>
                             </div>
                         </div>
@@ -163,3 +123,6 @@
     </div>
 </div>
 
+
+    
+@endsection

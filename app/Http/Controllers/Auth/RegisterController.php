@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Customer;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+
 
 class RegisterController extends Controller
 {
@@ -29,8 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    protected $redirectTo = "/webapp";
     /**
      * Create a new controller instance.
      *
@@ -64,10 +67,44 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+      
+        
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            // my code for register
+            // 'phone'=>$data['phone'],
+            // 'address'=>$data['address'],
+            // 'location'=>$data['location'],
+            // 'notes'=>$data['notes'],
+            // 'gender'=>$data['gender'],
+            // 'is_blocked'=>"1",
+            // 'is_deleted'=>"1",
+            // 'is_verified'=>"1",
+            
+            // 'customer_id' => $customer->id,
+
         ]);
+
+        $customer = Customer::create([
+            'name'=>request('name'),
+            'phone'=>request('phone'),
+            'address'=>request('address'),
+            'location'=>request('location'), 
+            'gender'=>request('gender'),
+            'fcm_token'=>"empty",
+            'notes'=>"notes",
+            'is_verified'=>"1",
+            'is_blocked'=>"1",
+            'is_deleted'=>"1",
+            'user_id' => $user->id,
+
+        ]);
+
+
+        return $user;
     }
 }

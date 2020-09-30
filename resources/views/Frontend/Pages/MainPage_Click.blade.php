@@ -21,20 +21,29 @@
         <div class="col-md-5 col-sm-5 col-lg-6 col-xs-12">
           <div style="float: left;padding: 30px;" >
             
-          <img height="200px" width="100%" src="{{URL::to('/')}}/Img/{{$find->image}}"/>
+          <img height="200px" width="100%" src="{{URL::to('/')}}/Img/glass/{{$find->image}}"/>
               <br>
               
               <div style="margin-top: 0px;width: 100%" align="center">
                <br><br><br><br>
                
-              <a href=""  style="width: 80%" id="ordernow" class="btn btn-success">Order Now</a>
-              <form action="" method="post">
-                <div class="form-group">
-                  <label for=""></label>
-                <input type="text" class="form-control" hidden value="{{$find->id}}" name="product_id" id="product_id" aria-describedby="helpId" placeholder="">
-                  <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
-              </form>
+              <form action="/ordernow/{{$find->id}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+             <div class="form-group">
+               <input type="hidden"
+                class="form-control" value="{{$find->id}}"  name="glass_id" id=""  aria-describedby="helpId" placeholder="">
+             </div>
+
+             <div class="form-group">
+              <label for="">Select Image</label>
+              <input type="file" class="form-control-file" name="orderimage" value="{{old('image')}}" id=""  placeholder="" aria-describedby="fileHelpId">
+            </div>
+
+
+             <button type="submit" class="btn btn-success">order now</button>
+             </form>
+        
 </div>
           
           </div>

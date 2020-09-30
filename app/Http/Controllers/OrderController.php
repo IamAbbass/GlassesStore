@@ -46,6 +46,7 @@ class OrderController extends Controller
         
 
         $image=$request->file('image');
+      
         $new_name=rand().'.'.$image->getClientOriginalName();
         $image->move(public_Path('/Img/order'),$new_name);
        

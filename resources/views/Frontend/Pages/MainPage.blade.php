@@ -66,7 +66,7 @@
        <div class="main-card">
           <div class="cardbody">
             <br>
-            <img src="{{URL::to('/')}}/Img/{{$item->image}}" alt="">
+            <img src="{{URL::to('/')}}/Img/glass/{{$item->image}}" alt="">
           </div>
             
           <div class="cardfooter">

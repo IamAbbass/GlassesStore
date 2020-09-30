@@ -30,7 +30,7 @@ class GlassesController extends Controller
 
         $image=$request->file('image');
         $new_name=rand().'.'.$image->getClientOriginalName();
-        $image->move(public_Path('/Img'),$new_name);
+        $image->move(public_Path('/Img/glass/'),$new_name);
        
         $is_available;
         if ($request->get('is_available')== null) {
@@ -81,11 +81,11 @@ class GlassesController extends Controller
             // When User Wants To update in image then older img will be delete
 
             $glasses=Glasses::findOrFail($id);
-            $image_path=public_Path().'/Img/'.$glasses->image;
+            $image_path=public_Path().'/Img/glass'.$glasses->image;
             unlink($image_path);
 
             $image_name=rand().'.'.$image->getClientOriginalName();
-            $image->move(public_Path('/Img'),$image_name);
+            $image->move(public_Path('/Img/glass'),$image_name);
         }
         else{
 

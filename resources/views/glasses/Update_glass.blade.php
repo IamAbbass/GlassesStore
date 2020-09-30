@@ -86,7 +86,7 @@
 <div class="form-group">
     <label>Image</label>
     <input type="file" name="image">
-<img src="{{URL::to('/')}}/Img/{{$glasses->image}}" height="100px" width="100px;" alt="">
+<img src="{{URL::to('/')}}/Img/glass/{{$glasses->image}}" height="100px" width="100px;" alt="">
 
 <input type="hidden" name="hidden_image" value="{{$glasses->image}}">
   

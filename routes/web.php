@@ -35,3 +35,6 @@ Auth::routes();
 Route::resource('/glass', 'GlassesController');
 Route::resource('/customer','CustomerController');
 Route::resource('/order','OrderController');
+
+Route::post('/ordernow/{id}','WebAppController@ordernow');
+Route::get('/MyOrder/{id}' , 'WebAppController@myorder');

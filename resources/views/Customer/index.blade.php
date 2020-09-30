@@ -56,10 +56,82 @@
                     @endif
 
                     
-                    <table class="table table-bordered table-striped">
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>phone</th>
+                                <th>Varified</th>
+                                <th>Address</th>
+                                <th>Location</th>
+                                <th>FCM Token</th>
+                                <th>Notes</th>
+                                <th>Gender</th>
+                                <th>Blocked</th>
+                                <th>Options</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @php
+                            $sno = 0;
+                        @endphp
+                        @foreach($customer as $customers)
+                            @php
+                                $sno++;
+                            @endphp
+                            <tr>
+                                <td>{{ $sno }}</td>
+                                
+                                <td>{{ $customers->name }}</td>
+                                <td>{{ $customers->phone }}</td>
+                                <td>
+                                    @if ($customers->is_verified==0)
+                                    {{$a="true"}}
+                                        @else
+                                        {{$a="false"}}
+                                    @endif
+                               
+                                </td>
+                                <td>{{ $customers->address }}</td>
+                                <td>{{ $customers->location }}</td>
+                                <td>{{ $customers->fcm_token }}</td>
+                                <td>{{ $customers->notes }}</td>
+                                <td>{{ $customers->gender }}</td>
+                                <td>
+                                    @if ($customers->is_blocked==0)
+                                    {{$a="true"}}
+                                        @else
+                                        {{$a="false"}}
+                                    @endif
+                               
+                                </td>
+                         
+
+                                <td align="center">
+                                <a class="btn btn-primary text-white" href="/customer/{{$customers->id}}/edit">Edit</a>
+                                    <br>
+                                <form action="/customer/{{$customers->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                    <button  type="submit" class="btn btn-warning">Delete</button>
+                                </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                           
+                          </tbody>
+                        </table>
+                      </div>
+
+
+
+
+
+                    {{-- <table class="table table-bordered table-striped">
                         <thead>
                             <th>#</th>
-                           
                             <th>Name</th>
                             <th>phone</th>
                             <th>Varified</th>
@@ -119,7 +191,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table> 
+                    </table>  --}}
                 </div>
             </div>
         </div>

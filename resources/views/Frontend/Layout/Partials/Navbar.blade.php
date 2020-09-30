@@ -70,17 +70,19 @@
 <br>
                                     <a href="/profile/{{Auth::User()->id}}">profile</a>
 
+                               
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
-                            
+                        <li class="slide"><a href="/MyOrder/{{Auth()->User()->id}}"><span class="glyphicon">&#xe116;</span> MyOrder</a></li>
                         @endguest
 
 
 
-                <li class="slide"><a href="#"><span class="glyphicon">&#xe116;</span> Cart</a></li>
+                
             </ul>
         </div>
     </div>

@@ -57,8 +57,73 @@
                         </div>
                     @endif
 
+
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Brand</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Color</th>
+                                <th>Gender</th>
+                                <th>Price</th>
+                                <th>Available</th>
+                                <th>Options</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @php
+                                $sno = 0;
+                            @endphp
+                            @foreach($glasses as $glass)
+                                @php
+                                    $sno++;
+                                @endphp
+                                <tr>
+                                    <td>{{ $sno }}</td>  
+                                    <td>{{ $glass->name }}</td>
+                                    <td>{{ $glass->brand }}</td>
+                                    <td>{{ $glass->description }}</td>
+                                    <td>
+                                        <img src="{{URL::to('/')}}/Img/glass/{{$glass->image}}" height="100px" width="120px"  alt="">
+                                    </td>
+                                    <td>{{ $glass->color }}</td>
+                                    <td>{{ $glass->gender }}</td>
+
+                                    <td>{{ $glass->price }}</td>
+                                    <td>
+                                        @if ($glass->is_available==0)
+                                        {{$a="True"}}
+                                            @else
+                                            {{$a="False"}}
+                                        @endif
+                                    </td>
+
+                                    <td align="center">
+                                        <a class="btn btn-primary text-white" href="/glass/{{ $glass->id }}/edit">Edit</a>
+                                        <br>
+                                        <form action="/glass/{{$glass->id}}" method="post">
+                                         @csrf
+                                         @method('DELETE')
+                                        <button  type="submit" class="btn btn-warning">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+
+
+
+
+
+
                     
-                    <table class="table table-bordered table-striped">
+                    {{-- <table class="table table-bordered table-striped">
                         <thead>
                             <th>#</th>
                             <th>Name</th>
@@ -69,7 +134,6 @@
                             <th>Gender</th>
                             <th>Price</th>
                             <th>Available</th>
-                            {{-- <th>Is_Delete</th> --}}
                             <th>Options</th>
                         </thead>
                         <tbody>
@@ -86,7 +150,7 @@
                                     <td>{{ $glass->brand }}</td>
                                     <td>{{ $glass->description }}</td>
                                     <td>
-                                        <img src="{{URL::to('/')}}/Img/{{$glass->image}}" height="100px" width="120px"  alt="">
+                                        <img src="{{URL::to('/')}}/Img/glass/{{$glass->image}}" height="100px" width="120px"  alt="">
                                     </td>
                                     <td>{{ $glass->color }}</td>
                                     <td>{{ $glass->gender }}</td>
@@ -112,7 +176,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table> --}}
                 </div>
             </div>
         </div>
